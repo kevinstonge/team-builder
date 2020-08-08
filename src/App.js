@@ -9,22 +9,29 @@ function App() {
     visible: false,
     method: null,
     formFunction: null,
+    member: null,
   });
   const addMember = (memberData) => {
     setMembers([...members, memberData]);
   };
   const deleteMember = (memberId) => {
-    console.log("delete");
     setMembers(members.filter((m) => m.id !== memberId));
   };
-  const editMember = (memberId) => {
-    console.log("edit");
+  const editMember = (memberData) => {
+    let tempMembers = members;
+    tempMembers.forEach((m, i) => {
+      if (m.id === memberData.id) {
+        tempMembers[i] = memberData;
+      }
+    });
+    setMembers(tempMembers);
   };
   const formControl = (options) => {
     setForm({
       visible: options.visible,
       method: options.method,
       formFunction: options.formFunction,
+      member: options.member,
     });
   };
   return (
@@ -37,6 +44,7 @@ function App() {
           visible: form.visible,
           method: form.method,
           formFunction: form.formFunction,
+          member: form.member,
         }}
         formControl={formControl}
       />
@@ -47,6 +55,7 @@ function App() {
             formControl({
               visible: true,
               method: "add",
+              member: null,
               formFunction: addMember,
             })
           }
@@ -75,6 +84,7 @@ function App() {
                       visible: true,
                       method: "edit",
                       formFunction: editMember,
+                      member: m,
                     })
                   }
                 >

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Form.scss";
+import uid from "./uid";
 const Form = (props) => {
-  const { visible, method, formFunction } = props.options;
+  const { visible, method, formFunction, member } = props.options;
   const [formValues, setFormValues] = useState({
+    id: null,
     name: "",
     email: "",
     role: "",
@@ -10,8 +12,8 @@ const Form = (props) => {
   const handleInput = (e) => {
     e.preventDefault();
     if (e.target.id === "closeButton") {
-      setFormValues({ name: "", email: "", role: "" });
-      props.formControl({ visible: false, method: "" });
+      setFormValues({ id: null, name: "", email: "", role: "" });
+      props.formControl({ visible: false, method: "", id: null, member: null });
     } else if (e.target.id === "submitButton" || e.type === "submit") {
       if (
         formValues.name !== "" &&
@@ -19,13 +21,18 @@ const Form = (props) => {
         formValues.role !== ""
       ) {
         formFunction({
-          id: Date.now(),
+          id: formValues.id || uid(),
           name: formValues.name,
           email: formValues.email,
           role: formValues.role,
         });
-        setFormValues({ name: "", email: "", role: "" });
-        props.formControl({ visible: false, method: "" });
+        setFormValues({ id: null, name: "", email: "", role: "" });
+        props.formControl({
+          visible: false,
+          method: "",
+          formFunction: null,
+          member: null,
+        });
       }
     } else {
       setFormValues({ ...formValues, [e.target.id]: e.target.value });
@@ -33,8 +40,12 @@ const Form = (props) => {
   };
   useEffect(() => {
     document.querySelector("#name").focus();
-    console.log(props);
   }, [visible]);
+  useEffect(() => {
+    if (member !== null) {
+      setFormValues({ ...member });
+    }
+  }, [member]);
   return (
     <div className={`formContainer ${visible ? `visible` : `hidden`}`}>
       <form className="memberForm hidden" onSubmit={(e) => handleInput(e)}>
