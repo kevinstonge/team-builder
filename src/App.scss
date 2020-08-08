@@ -1,0 +1,61 @@
+@import "base";
+body {
+  background-color: $bg1;
+  color: $fg1;
+}
+.App {
+  @include flexC;
+}
+header {
+  background-color: $bg2;
+  width: 100vw;
+  margin-bottom: $md;
+  box-shadow: 0 $xs $sm $xs $bg0;
+  text-align: center;
+}
+header h1 {
+  font-size: $lg;
+  padding: $sm 0;
+}
+.members {
+  @include flexC;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.member {
+  background-color: $bg2;
+  margin: $sm;
+  box-shadow: $xs $xs $sm $xs $bg0;
+}
+.member * {
+  padding: $sm;
+}
+.memberName {
+  width: 100%;
+  background-color: $bg3;
+}
+.changeMember {
+  @include flexC;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+button {
+  background-color: $bg3;
+  color: $fg1;
+  padding: $sm $md;
+  border: none;
+}
+
+button.addMemberButton:hover {
+  background-color: $em1;
+  color: $bg3;
+}
+
+button.editMemberButton:hover {
+  background-color: $em3;
+  color: $bg3;
+}
+button.deleteMemberButton:hover {
+  background-color: $em2;
+  color: $bg3;
+}

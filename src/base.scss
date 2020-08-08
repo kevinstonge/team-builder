@@ -1,0 +1,21 @@
+$bg0: #000;
+$bg1: #222;
+$bg2: #333;
+$bg3: #444;
+$fg1: #ddd;
+$fg2: #eee;
+$fg3: #fff;
+$em1: #aea;
+$em2: #eae;
+$em3: #aee;
+$xs: 0.1rem;
+$sm: 0.5rem;
+$md: 1rem;
+$lg: 2rem;
+@mixin flexC {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
