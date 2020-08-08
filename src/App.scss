@@ -44,6 +44,13 @@ button {
   color: $fg1;
   padding: $sm $md;
   border: none;
+  box-shadow: $xs $xs $xs $xs $bg1;
+}
+
+button.addMemberButton {
+  color: $em1;
+  box-shadow: $xs $xs $sm $xs $bg0;
+  margin-bottom: $sm;
 }
 
 button.addMemberButton:hover {

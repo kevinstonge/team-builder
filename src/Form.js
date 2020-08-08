@@ -92,7 +92,7 @@ const Form = (props) => {
           <button
             type="submit"
             id="submitButton"
-            className={`${method}Button submitButton`}
+            className={`${method}MemberButton submitButton`}
           >
             {method}
           </button>

@@ -60,7 +60,7 @@ function App() {
             })
           }
         >
-          add
+          add a member to the team
         </button>
       </div>
       <div className="members">
