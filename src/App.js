@@ -18,21 +18,12 @@ function App() {
     setMembers(members.filter((m) => m.id !== memberId));
   };
   const editMember = (memberData) => {
-    let tempMembers = members;
-    tempMembers.forEach((m, i) => {
-      if (m.id === memberData.id) {
-        tempMembers[i] = memberData;
-      }
-    });
-    setMembers(tempMembers);
+    setMembers(
+      members.map((m, i) => (m.id === memberData.id ? memberData : m))
+    );
   };
   const formControl = (options) => {
-    setForm({
-      visible: options.visible,
-      method: options.method,
-      formFunction: options.formFunction,
-      member: options.member,
-    });
+    setForm(options);
   };
   return (
     <div className="App">

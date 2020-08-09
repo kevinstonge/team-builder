@@ -1,27 +1,27 @@
 const memberData = [
   {
     id: 0,
-    name: "Kevin",
-    email: "kevinstonge@gmail.com",
+    name: "John Doe",
+    email: "johndoe@gmail.com",
     role: "front-end developer",
   },
   {
     id: 1,
-    name: "Kevin",
-    email: "kevin@gmail.com",
-    role: "front-end developer",
+    name: "Jane Doe",
+    email: "janedoe@gmail.com",
+    role: "full-stack developer",
   },
   {
     id: 2,
-    name: "Kevin",
-    email: "stonge@gmail.com",
-    role: "front-end developer",
+    name: "Janet Doe",
+    email: "janetdoe@gmail.com",
+    role: "back-end developer",
   },
   {
     id: 3,
-    name: "Kevin",
-    email: "kstonge@gmail.com",
-    role: "front-end developer",
+    name: "James Doe",
+    email: "jamesdoe@gmail.com",
+    role: "consultant",
   },
 ];
 export default memberData;
