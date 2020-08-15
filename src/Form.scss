@@ -1,0 +1,58 @@
+@import "./base";
+.formContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  @include flexC;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.memberForm {
+  background-color: $bg2;
+  .formHeader h3 {
+    background: $bg3;
+    @include flexC;
+    flex-direction: row;
+    justify-content: space-between;
+    * {
+      padding: $sm $sm $sm $sm;
+    }
+    .closeButton {
+      cursor: pointer;
+      background-color: $bg2;
+      &:hover {
+        background-color: $em2;
+        color: $bg1;
+      }
+    }
+  }
+  .formBody {
+    padding: $sm;
+    @include flexC;
+    justify-content: flex-end;
+    label {
+      @include flexC;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: $md;
+    }
+    input {
+      background-color: $bg3;
+      color: $fg3;
+      border: $xs inset $bg1;
+      padding: $sm;
+      margin-left: $md;
+      outline-color: $em1;
+    }
+    .submitButton {
+      align-self: flex-end;
+    }
+  }
+}
+.formContainer.hidden {
+  display: none;
+}
